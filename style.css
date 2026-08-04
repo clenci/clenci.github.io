@@ -271,6 +271,8 @@ h2{
 .hero-photo{
   flex:0 0 auto;
   width:min(28vw, 300px);
+  min-width:0;
+  max-width:100%;
 }
 .hero-photo .frame{
   position:relative;
