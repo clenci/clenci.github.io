@@ -45,6 +45,7 @@ body{
 .section{
   scroll-snap-align:start;
   scroll-snap-stop:always;
+  view-timeline:--section;
   padding:9vh 8vw;
   min-height:100vh;
   display:flex;
@@ -102,17 +103,23 @@ h2{
 }
 
 /* revelação de entrada — CSS puro, sem JS, via scroll-driven animation
-   (animation-timeline: view()). Cada .reveal "melts in" conforme entra na
-   tela. Onde `view()` não é suportado, animation-timeline volta ao default
-   `auto` e a animação roda uma vez no load — nunca fica preso em opacity:0. */
+   amarrada à view-timeline nomeada da própria SEÇÃO (--section, definida
+   acima em .section), não à entrada do elemento centralizado — preso a
+   este último, o efeito terminava cedo demais (o conteúdo já nasce
+   centralizado na tela) e ficava indistinguível de rolagem normal.
+   Amarrado à seção, o "pop" acontece perto do momento em que o snap
+   termina de encaixar — é isso que dá a leitura de troca de "slide".
+   Onde `view()`/timelines nomeadas não são suportadas, animation-timeline
+   cai no default `auto` e a animação roda uma vez no load — nunca fica
+   presa em opacity:0. */
 .reveal{
-  animation:reveal-in .9s cubic-bezier(.22,.61,.36,1) both;
-  animation-timeline:view();
-  animation-range:entry 0% cover 32%;
+  animation:reveal-in .7s cubic-bezier(.22,.61,.36,1) both;
+  animation-timeline:--section;
+  animation-range:entry 50% entry 100%;
 }
 @keyframes reveal-in{
-  from{ opacity:0; transform:translateY(18px); filter:blur(6px); }
-  to{ opacity:1; transform:translateY(0); filter:blur(0); }
+  from{ opacity:0; transform:translateY(34px) scale(.97); filter:blur(10px); }
+  to{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{ animation:none; }
