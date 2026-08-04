@@ -115,7 +115,7 @@ h2{
 .reveal{
   animation:reveal-in .7s cubic-bezier(.22,.61,.36,1) both;
   animation-timeline:--section;
-  animation-range:entry 50% entry 100%;
+  animation-range:entry 25% entry 100%;
 }
 @keyframes reveal-in{
   from{ opacity:0; transform:translateY(34px) scale(.97); filter:blur(10px); }
@@ -434,6 +434,12 @@ h2{
   flex-shrink:0;
 }
 
+.method-text{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
 .method-step .title{
   font-family:'Lora',Georgia,serif;
   font-weight:600;
@@ -463,6 +469,7 @@ h2{
   }
   .method-step .num{ margin-bottom:0; margin-right:1rem; }
   .method-step .title{ margin-bottom:.3rem; }
+  .method-text{ align-items:flex-start; }
 }
 
 /* ---------- JORNADA + SERVIÇOS ---------- */
