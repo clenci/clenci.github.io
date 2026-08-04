@@ -1,0 +1,105 @@
+/* Design system do site — deriva de motor-pdf/style-apresentacao.css
+   (mesmos tokens de cor e tipografia do material apresentável em PDF).
+   Cover fica em tela cheia, tipografia adaptada de mm/pt para unidades web. */
+
+:root{
+  --ink:#15191F;
+  --ink2:#1F2530;
+  --paper:#F4F1EA;
+  --paper2:#ECE8DF;
+  --offwhite:#ECE8DF;
+  --inktext:#1B2026;
+  --gold:#C2A35A;
+  --slate-paper:#6B6456;
+  --slate-ink:#7C8591;
+  --hairline:#D8D2C4;
+}
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+body{
+  font-family:'Inter','Helvetica Neue',Arial,sans-serif;
+  color:var(--inktext);
+  background:var(--paper);
+  line-height:1.55;
+}
+
+.cover{
+  min-height:100vh;
+  background:var(--ink);
+  color:var(--offwhite);
+  display:flex;
+  flex-direction:column;
+  padding:8vh 8vw;
+}
+
+.cover .kicker{
+  font-size:0.7rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-weight:600;
+}
+
+.cover .spacer{ flex:1 1 auto; min-height:4rem; }
+
+.cover h1.cover-title{
+  font-family:'Lora',Georgia,serif;
+  font-weight:600;
+  font-size:clamp(1.8rem, 4.2vw, 3.4rem);
+  line-height:1.18;
+  color:var(--offwhite);
+  margin:0 0 2rem 0;
+  max-width:42ch;
+}
+
+.cover .gold-rule{
+  width:64px;
+  height:3px;
+  background:var(--gold);
+  margin:0 0 2rem 0;
+}
+
+.cover .subtitle{
+  font-family:'Lora',Georgia,serif;
+  font-style:italic;
+  font-size:clamp(1rem, 1.4vw, 1.25rem);
+  line-height:1.5;
+  color:#C9C2B2;
+  max-width:52ch;
+  margin:0;
+}
+
+.cover .lockup{
+  margin-top:auto;
+  padding-top:4rem;
+}
+
+.cover .lockup .name{
+  font-size:0.85rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--offwhite);
+  font-weight:600;
+}
+
+.cover .lockup .role{
+  font-size:0.7rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--slate-ink);
+  margin-top:0.4rem;
+}
+
+.cover .lockup .handle{
+  font-size:0.75rem;
+  letter-spacing:.12em;
+  color:var(--gold);
+  margin-top:0.9rem;
+}
