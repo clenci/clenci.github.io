@@ -101,16 +101,21 @@ h2{
   line-height:1.5;
 }
 
-/* reveal on scroll — só aplica opacidade/deslocamento quando JS roda;
-   sem JS, tudo permanece visível (ver script.js, classe .js-on no <html>) */
-html.js-on .reveal{
-  opacity:0;
-  transform:translateY(14px);
-  transition:opacity .5s ease, transform .5s ease;
+/* revelação de entrada — CSS puro, sem JS, via scroll-driven animation
+   (animation-timeline: view()). Cada .reveal "melts in" conforme entra na
+   tela. Onde `view()` não é suportado, animation-timeline volta ao default
+   `auto` e a animação roda uma vez no load — nunca fica preso em opacity:0. */
+.reveal{
+  animation:reveal-in .9s cubic-bezier(.22,.61,.36,1) both;
+  animation-timeline:view();
+  animation-range:entry 0% cover 32%;
 }
-html.js-on .reveal.is-visible{
-  opacity:1;
-  transform:translateY(0);
+@keyframes reveal-in{
+  from{ opacity:0; transform:translateY(18px); filter:blur(6px); }
+  to{ opacity:1; transform:translateY(0); filter:blur(0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ animation:none; }
 }
 
 /* ---------- BARRA DE PROGRESSO ---------- */

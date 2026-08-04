@@ -1,6 +1,4 @@
 (function () {
-  document.documentElement.classList.add('js-on');
-
   var sections = Array.prototype.slice.call(document.querySelectorAll('.section[id]'));
 
   // ---- trilho de posição (desktop) + índice flutuante (mobile) ----
@@ -54,21 +52,8 @@
   document.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
-  // ---- revelação ao entrar em vista + seção ativa no trilho ----
+  // ---- seção ativa no trilho (a revelação de entrada agora é CSS puro, ver style.css) ----
   if ('IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      revealObserver.observe(el);
-    });
-
     var activeObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) setActive(entry.target.id);
@@ -76,10 +61,6 @@
     }, { threshold: 0.5 });
 
     sections.forEach(function (s) { activeObserver.observe(s); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      el.classList.add('is-visible');
-    });
   }
 
   // ---- convite de rolagem na capa ----
