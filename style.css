@@ -18,6 +18,21 @@
   --slate-ink:#7C8591;
   --hairline:#D8D2C4;
   --hairline-dark:#2A313B;
+
+  /* multiplicador de tipografia + largura de coluna — todo font-size
+     e max-width de coluna de texto do arquivo usa calc(valor * este
+     número); margens/gaps/padding ficam de fora de propósito.
+     Objetivo (Cezar, 05/08): texto e caixa de texto maiores "enchendo
+     mais a tela", sem a página ficar mais longa/precisar rolar mais —
+     por isso as seções continuam com padding e min-height:100vh fixos,
+     só o conteúdo cresce dentro delas.
+     `zoom` foi testado e descartado: interage mal com min-height:100vh
+     (o zoom nativo do navegador recalcula vh de um jeito que o `zoom`
+     do CSS não replica, esticando as seções verticalmente ao invés de
+     preencher a tela).
+     TESTE (05/08): 1.25 = +25%. Voltar para 1 antes de publicar, a
+     menos que ele aprove manter maior. */
+  --type-scale:1.25;
 }
 
 *{ box-sizing:border-box; }
@@ -56,11 +71,11 @@ body{
 .section.dark{ background:var(--ink); color:var(--offwhite); }
 .section.light{ background:var(--paper); color:var(--inktext); }
 
-.section-inner{ max-width:920px; margin:0 auto; width:100%; }
-.section-inner.wide{ max-width:1080px; }
+.section-inner{ max-width:calc(920px * var(--type-scale)); margin:0 auto; width:100%; }
+.section-inner.wide{ max-width:calc(1080px * var(--type-scale)); }
 
 .kicker{
-  font-size:.7rem;
+  font-size:calc(.7rem * var(--type-scale));
   letter-spacing:.28em;
   text-transform:uppercase;
   color:var(--gold);
@@ -79,7 +94,7 @@ body{
 h2{
   font-family:'Lora',Georgia,serif;
   font-weight:600;
-  font-size:clamp(1.6rem, 3.4vw, 2.4rem);
+  font-size:clamp(calc(1.6rem * var(--type-scale)), calc(3.4vw * var(--type-scale)), calc(2.4rem * var(--type-scale)));
   line-height:1.22;
   margin:0 0 1.4rem 0;
 }
@@ -87,7 +102,7 @@ h2{
 .light h2{ color:var(--inktext); }
 
 .lead{
-  font-size:clamp(1rem, 1.5vw, 1.15rem);
+  font-size:clamp(calc(1rem * var(--type-scale)), calc(1.5vw * var(--type-scale)), calc(1.15rem * var(--type-scale)));
   line-height:1.65;
   max-width:64ch;
   margin:0 0 1.6rem 0;
@@ -98,7 +113,7 @@ h2{
 .synthesis{
   font-family:'Lora',Georgia,serif;
   font-style:italic;
-  font-size:clamp(1.05rem, 1.6vw, 1.3rem);
+  font-size:clamp(calc(1.05rem * var(--type-scale)), calc(1.6vw * var(--type-scale)), calc(1.3rem * var(--type-scale)));
   line-height:1.5;
 }
 
@@ -176,7 +191,7 @@ h2{
   top:50%;
   transform:translateY(-50%);
   white-space:nowrap;
-  font-size:.72rem;
+  font-size:calc(.72rem * var(--type-scale));
   letter-spacing:.06em;
   color:var(--offwhite);
   background:var(--ink);
@@ -206,7 +221,7 @@ h2{
   background:var(--ink);
   color:var(--gold);
   border:1px solid var(--hairline-dark);
-  font-size:1.2rem;
+  font-size:calc(1.2rem * var(--type-scale));
   line-height:1;
   cursor:pointer;
   box-shadow:0 4px 14px rgba(0,0,0,.25);
@@ -230,7 +245,7 @@ h2{
 .mobile-index-sheet.open{ display:flex; flex-direction:column; }
 .mobile-index-sheet a{
   color:var(--offwhite);
-  font-size:.85rem;
+  font-size:calc(.85rem * var(--type-scale));
   padding:.5rem .7rem;
   text-decoration:none;
   border-radius:4px;
@@ -243,19 +258,19 @@ h2{
 
 .hero{ position:relative; }
 
-.hero-inner{ max-width:820px; }
+.hero-inner{ max-width:calc(820px * var(--type-scale)); }
 
 .hero-name{
   font-family:'Lora',Georgia,serif;
   font-weight:600;
-  font-size:clamp(2.6rem, 7vw, 4.6rem);
+  font-size:clamp(calc(2.6rem * var(--type-scale)), calc(7vw * var(--type-scale)), calc(4.6rem * var(--type-scale)));
   line-height:1.05;
   color:var(--offwhite);
   margin:0 0 .6rem 0;
 }
 
 .hero-role{
-  font-size:clamp(.85rem, 1.4vw, 1rem);
+  font-size:clamp(calc(.85rem * var(--type-scale)), calc(1.4vw * var(--type-scale)), calc(1rem * var(--type-scale)));
   letter-spacing:.2em;
   text-transform:uppercase;
   color:var(--gold);
@@ -266,7 +281,7 @@ h2{
 .hero-declaration{
   font-family:'Lora',Georgia,serif;
   font-weight:500;
-  font-size:clamp(1.15rem, 2.3vw, 1.55rem);
+  font-size:clamp(calc(1.15rem * var(--type-scale)), calc(2.3vw * var(--type-scale)), calc(1.55rem * var(--type-scale)));
   line-height:1.4;
   color:var(--offwhite);
   max-width:46ch;
@@ -276,7 +291,7 @@ h2{
 .hero-subtitle{
   font-family:'Lora',Georgia,serif;
   font-style:italic;
-  font-size:clamp(.95rem, 1.3vw, 1.1rem);
+  font-size:clamp(calc(.95rem * var(--type-scale)), calc(1.3vw * var(--type-scale)), calc(1.1rem * var(--type-scale)));
   line-height:1.55;
   color:#C9C2B2;
   max-width:48ch;
@@ -290,7 +305,7 @@ h2{
   gap:.9rem;
 }
 .hero-lockup .handle{
-  font-size:.78rem;
+  font-size:calc(.78rem * var(--type-scale));
   letter-spacing:.1em;
   color:var(--gold);
 }
@@ -302,7 +317,7 @@ h2{
   background:none;
   border:0;
   color:var(--slate-ink);
-  font-size:.75rem;
+  font-size:calc(.75rem * var(--type-scale));
   letter-spacing:.14em;
   text-transform:uppercase;
   cursor:pointer;
@@ -337,7 +352,7 @@ h2{
   padding:1.1rem 1.3rem;
   background:var(--paper2);
   border-left:3px solid var(--gold);
-  font-size:1rem;
+  font-size:calc(1rem * var(--type-scale));
   line-height:1.55;
 }
 
@@ -345,7 +360,7 @@ h2{
   font-family:'Lora',Georgia,serif;
   font-weight:600;
   font-style:italic;
-  font-size:clamp(1.3rem, 2.6vw, 1.9rem);
+  font-size:clamp(calc(1.3rem * var(--type-scale)), calc(2.6vw * var(--type-scale)), calc(1.9rem * var(--type-scale)));
   line-height:1.4;
   color:var(--inktext);
   border-top:1px solid var(--hairline);
@@ -368,7 +383,7 @@ h2{
   background:var(--ink2);
   border-top:2px solid var(--gold);
   padding:1.3rem 1.4rem;
-  font-size:.96rem;
+  font-size:calc(.96rem * var(--type-scale));
   line-height:1.55;
   color:#DAD5C6;
 }
@@ -376,7 +391,7 @@ h2{
 .closing-line{
   font-family:'Lora',Georgia,serif;
   font-style:italic;
-  font-size:clamp(1.1rem, 2vw, 1.35rem);
+  font-size:clamp(calc(1.1rem * var(--type-scale)), calc(2vw * var(--type-scale)), calc(1.35rem * var(--type-scale)));
   line-height:1.5;
   color:var(--gold-soft);
   border-top:1px solid var(--hairline-dark);
@@ -397,7 +412,7 @@ h2{
 .method-steps::before{
   content:"";
   position:absolute;
-  top:22px;
+  top:calc(22px * var(--type-scale));
   left:6%;
   right:6%;
   height:1px;
@@ -418,15 +433,15 @@ h2{
 }
 
 .method-step .num{
-  width:44px;
-  height:44px;
+  width:calc(44px * var(--type-scale));
+  height:calc(44px * var(--type-scale));
   border-radius:50%;
   background:var(--paper);
-  border:2px solid var(--gold);
+  border:calc(2px * var(--type-scale)) solid var(--gold);
   color:var(--gold);
   font-family:'Lora',Georgia,serif;
   font-weight:600;
-  font-size:.9rem;
+  font-size:calc(.9rem * var(--type-scale));
   display:flex;
   align-items:center;
   justify-content:center;
@@ -443,13 +458,13 @@ h2{
 .method-step .title{
   font-family:'Lora',Georgia,serif;
   font-weight:600;
-  font-size:1.02rem;
+  font-size:calc(1.02rem * var(--type-scale));
   color:var(--inktext);
   margin-bottom:.5rem;
 }
 
 .method-step .question{
-  font-size:.8rem;
+  font-size:calc(.8rem * var(--type-scale));
   line-height:1.5;
   color:var(--slate-paper);
 }
@@ -476,7 +491,7 @@ h2{
 
 .journey-tag{
   display:inline-block;
-  font-size:.72rem;
+  font-size:calc(.72rem * var(--type-scale));
   letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--slate-ink);
@@ -515,12 +530,12 @@ h2{
 .service-card summary .name{
   font-family:'Lora',Georgia,serif;
   font-weight:600;
-  font-size:1.08rem;
+  font-size:calc(1.08rem * var(--type-scale));
   color:var(--offwhite);
   flex:1 1 220px;
 }
 .service-card summary .duration{
-  font-size:.72rem;
+  font-size:calc(.72rem * var(--type-scale));
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--gold);
@@ -530,12 +545,12 @@ h2{
   display:block;
   width:100%;
   color:#B9C2CE;
-  font-size:.92rem;
+  font-size:calc(.92rem * var(--type-scale));
   margin-top:.2rem;
 }
 .service-card summary::after{
   content:"+";
-  font-size:1.2rem;
+  font-size:calc(1.2rem * var(--type-scale));
   color:var(--gold);
   margin-left:.6rem;
 }
@@ -547,7 +562,7 @@ h2{
   padding-top:1.1rem;
 }
 .service-body h4{
-  font-size:.72rem;
+  font-size:calc(.72rem * var(--type-scale));
   letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--gold);
@@ -557,12 +572,12 @@ h2{
   margin:0 0 1.2rem 0;
   padding-left:1.1rem;
   color:#C9C2B2;
-  font-size:.92rem;
+  font-size:calc(.92rem * var(--type-scale));
   line-height:1.55;
 }
 .service-body ul:last-child{ margin-bottom:0; }
 .service-body .footnote{
-  font-size:.85rem;
+  font-size:calc(.85rem * var(--type-scale));
   color:var(--slate-ink);
   margin:0;
   font-style:italic;
@@ -581,12 +596,12 @@ h2{
 }
 .boundary-grid h3{
   font-family:'Lora',Georgia,serif;
-  font-size:1.05rem;
+  font-size:calc(1.05rem * var(--type-scale));
   margin:0 0 .6rem 0;
   color:var(--inktext);
 }
 .boundary-grid p{
-  font-size:.95rem;
+  font-size:calc(.95rem * var(--type-scale));
   line-height:1.6;
   color:var(--slate-paper);
   margin:0;
@@ -595,7 +610,7 @@ h2{
 .boundary-note{
   border-top:1px solid var(--hairline);
   padding-top:1.4rem;
-  font-size:.9rem;
+  font-size:calc(.9rem * var(--type-scale));
   line-height:1.6;
   color:var(--slate-paper);
 }
@@ -615,13 +630,13 @@ h2{
 .stat-grid .stat-number{
   font-family:'Lora',Georgia,serif;
   font-weight:600;
-  font-size:clamp(1.8rem, 4vw, 2.6rem);
+  font-size:clamp(calc(1.8rem * var(--type-scale)), calc(4vw * var(--type-scale)), calc(2.6rem * var(--type-scale)));
   color:var(--gold);
   line-height:1;
   margin:0 0 .5rem 0;
 }
 .stat-grid .stat-label{
-  font-size:.85rem;
+  font-size:calc(.85rem * var(--type-scale));
   line-height:1.45;
   color:#C9C2B2;
 }
@@ -636,7 +651,7 @@ h2{
 }
 .cta-card p{
   color:#C9C2B2;
-  font-size:1rem;
+  font-size:calc(1rem * var(--type-scale));
   line-height:1.6;
   max-width:60ch;
   margin:0 0 1.6rem 0;
@@ -648,7 +663,7 @@ h2{
   background:var(--gold);
   color:var(--ink);
   font-weight:600;
-  font-size:.9rem;
+  font-size:calc(.9rem * var(--type-scale));
   letter-spacing:.02em;
   padding:.85rem 1.5rem;
   border-radius:3px;
@@ -659,7 +674,7 @@ h2{
 .site-footer{
   text-align:center;
   padding:2.2rem 8vw 3vh 8vw;
-  font-size:.78rem;
+  font-size:calc(.78rem * var(--type-scale));
   letter-spacing:.06em;
   color:var(--slate-paper);
 }
