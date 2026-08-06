@@ -590,6 +590,7 @@ h2{
   font-size:calc(1.08rem * var(--type-scale));
   color:var(--offwhite);
   flex:1 1 220px;
+  order:1;
 }
 .service-card summary .duration{
   font-size:calc(.72rem * var(--type-scale));
@@ -597,6 +598,7 @@ h2{
   text-transform:uppercase;
   color:var(--gold);
   white-space:nowrap;
+  order:2;
 }
 .service-card summary .synthesis{
   display:block;
@@ -604,12 +606,14 @@ h2{
   color:#B9C2CE;
   font-size:calc(.92rem * var(--type-scale));
   margin-top:.2rem;
+  order:4;
 }
 .service-card summary::after{
   content:"+";
   font-size:calc(1.2rem * var(--type-scale));
   color:var(--gold);
   margin-left:.6rem;
+  order:3;
 }
 .service-card[open] summary::after{ content:"–"; }
 
