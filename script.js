@@ -108,6 +108,25 @@
   var closeBtn = document.getElementById('privacyDialogClose');
   if (closeBtn && dialog) closeBtn.addEventListener('click', function () { dialog.close(); });
 
+  // ---- eventos de conversão (contato via LinkedIn / e-mail) ----
+  var CONTACT_LOCATIONS = [
+    { selector: '.hero-lockup a[href*="linkedin.com/in/cezarlenci"]', method: 'linkedin', location: 'hero' },
+    { selector: '.hero-lockup a[href^="mailto:"]', method: 'email', location: 'hero' },
+    { selector: '.cta-buttons a[href*="linkedin.com/in/cezarlenci"]', method: 'linkedin', location: 'cta_card' },
+    { selector: '.cta-buttons a[href^="mailto:"]', method: 'email', location: 'cta_card' },
+    { selector: '.site-footer > div:first-child a[href*="linkedin.com/in/cezarlenci"]', method: 'linkedin', location: 'footer' },
+    { selector: '.site-footer > div:first-child a[href^="mailto:"]', method: 'email', location: 'footer' }
+  ];
+  if (typeof gtag === 'function') {
+    CONTACT_LOCATIONS.forEach(function (entry) {
+      var el = document.querySelector(entry.selector);
+      if (!el) return;
+      el.addEventListener('click', function () {
+        gtag('event', 'contact_click', { method: entry.method, location: entry.location });
+      });
+    });
+  }
+
   if (dialog) {
     dialog.addEventListener('click', function (e) {
       if (e.target === dialog) dialog.close();
