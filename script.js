@@ -132,4 +132,17 @@
       if (e.target === dialog) dialog.close();
     });
   }
+
+  // ---- expansão dos cards de serviço ----
+  if (typeof gtag === 'function') {
+    document.querySelectorAll('.service-card').forEach(function (card) {
+      card.addEventListener('toggle', function () {
+        if (!card.open) return;
+        var nameEl = card.querySelector('.name');
+        gtag('event', 'service_card_expand', {
+          service_name: nameEl ? nameEl.textContent.trim() : 'desconhecido'
+        });
+      });
+    });
+  }
 })();
