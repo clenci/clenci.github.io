@@ -337,8 +337,26 @@
     <a href="https://medium.com/@cezar.lenci" target="_blank" rel="noopener">Medium</a>
     <span aria-hidden="true">·</span>
     <a href="https://github.com/clenci" target="_blank" rel="noopener">GitHub</a>
+    <span aria-hidden="true">·</span>
+    <button type="button" class="privacy-icon" id="privacyIconBtn" aria-haspopup="dialog" aria-controls="privacyDialog" title="Privacidade e cookies">🛈</button>
   </div>
 </footer>
+
+<div class="cookie-bar" id="cookieBar" role="region" aria-label="Aviso de cookies">
+  <p>Este site usa cookies para analisar o tráfego do site. <button type="button" class="cookie-link" id="cookiePolicyLink">Saiba mais</button></p>
+  <button type="button" class="cookie-dismiss" id="cookieDismissBtn">Entendi</button>
+</div>
+
+<dialog id="privacyDialog" class="privacy-dialog" aria-labelledby="privacyDialogTitle">
+  <div class="privacy-dialog-body">
+    <button type="button" class="privacy-dialog-close" id="privacyDialogClose" aria-label="Fechar">×</button>
+    <h3 id="privacyDialogTitle">Privacidade e cookies</h3>
+    <p>Este site usa o Google Analytics para entender, de forma agregada, quantas pessoas visitam as páginas e de onde vêm — nenhuma informação é usada para identificar você individualmente.</p>
+    <p>Dados coletados: páginas visitadas, origem do acesso, tipo de dispositivo e localização aproximada (país/cidade), via cookies do Google Analytics.</p>
+    <p>Você pode bloquear esses cookies nas configurações do seu navegador a qualquer momento, sem prejuízo ao uso do site.</p>
+    <p>Para solicitar informações sobre os dados coletados ou pedir sua exclusão, escreva para <a href="mailto:contato@cezarlenci.com.br">contato@cezarlenci.com.br</a>.</p>
+  </div>
+</dialog>
 
 <script src="script.js"></script>
 </body>

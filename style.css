@@ -766,6 +766,109 @@ h2{
 }
 .footer-links-secondary a:hover{ opacity:1; text-decoration:underline; }
 
+/* ---------- COOKIE BAR + PRIVACIDADE ---------- */
+
+.privacy-icon{
+  background:none;
+  border:0;
+  color:inherit;
+  opacity:.6;
+  font-size:calc(.85rem * var(--type-scale));
+  cursor:pointer;
+  padding:0;
+  line-height:1;
+}
+.privacy-icon:hover{ opacity:1; color:var(--gold); }
+
+.cookie-bar{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:70;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.6rem 1.2rem;
+  background:var(--ink);
+  color:#C9C2B2;
+  border-top:1px solid var(--hairline-dark);
+  padding:.85rem 1.4rem;
+  font-size:calc(.82rem * var(--type-scale));
+  line-height:1.5;
+  box-shadow:0 -4px 18px rgba(0,0,0,.2);
+}
+.cookie-bar.visible{ display:flex; }
+.cookie-bar p{ margin:0; }
+.cookie-link,
+.cookie-dismiss{
+  font-family:inherit;
+  font-size:inherit;
+  cursor:pointer;
+  border:0;
+}
+.cookie-link{
+  background:none;
+  color:var(--gold);
+  text-decoration:underline;
+  padding:0;
+  margin-left:.2rem;
+}
+.cookie-dismiss{
+  background:var(--gold);
+  color:var(--ink);
+  font-weight:600;
+  border-radius:3px;
+  padding:.5rem 1.1rem;
+  white-space:nowrap;
+}
+.cookie-dismiss:hover{ background:var(--gold-soft); }
+
+.privacy-dialog{
+  border:0;
+  border-radius:6px;
+  padding:0;
+  max-width:min(560px, 88vw);
+  background:var(--paper);
+  color:var(--inktext);
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
+.privacy-dialog::backdrop{
+  background:rgba(21,25,31,.6);
+}
+.privacy-dialog-body{
+  position:relative;
+  padding:2rem 2.2rem;
+}
+.privacy-dialog-body h3{
+  font-family:'Lora',Georgia,serif;
+  font-weight:600;
+  font-size:calc(1.2rem * var(--type-scale));
+  margin:0 0 1.1rem 0;
+  color:var(--inktext);
+  padding-right:1.5rem;
+}
+.privacy-dialog-body p{
+  font-size:calc(.9rem * var(--type-scale));
+  line-height:1.6;
+  color:var(--slate-paper);
+  margin:0 0 .9rem 0;
+}
+.privacy-dialog-body p:last-child{ margin-bottom:0; }
+.privacy-dialog-body a{ color:var(--gold); }
+.privacy-dialog-close{
+  position:absolute;
+  top:1.2rem;
+  right:1.3rem;
+  background:none;
+  border:0;
+  font-size:calc(1.3rem * var(--type-scale));
+  line-height:1;
+  color:var(--slate-paper);
+  cursor:pointer;
+  padding:0;
+}
+.privacy-dialog-close:hover{ color:var(--inktext); }
+
 /* ---------- RESPONSIVO GERAL ---------- */
 
 @media (max-width:600px){

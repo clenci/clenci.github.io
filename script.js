@@ -71,4 +71,46 @@
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   }
+
+  // ---- barra de cookies + popup de privacidade ----
+  var COOKIE_KEY = 'cookieNoticeDismissed';
+  var cookieBar = document.getElementById('cookieBar');
+  var dialog = document.getElementById('privacyDialog');
+
+  if (cookieBar && !localStorage.getItem(COOKIE_KEY)) {
+    cookieBar.classList.add('visible');
+  }
+
+  function dismissCookieBar() {
+    if (!cookieBar) return;
+    cookieBar.classList.remove('visible');
+    localStorage.setItem(COOKIE_KEY, '1');
+  }
+
+  var dismissBtn = document.getElementById('cookieDismissBtn');
+  if (dismissBtn) dismissBtn.addEventListener('click', dismissCookieBar);
+
+  function openPrivacyDialog() {
+    if (dialog && typeof dialog.showModal === 'function') dialog.showModal();
+  }
+
+  var policyLink = document.getElementById('cookiePolicyLink');
+  if (policyLink) {
+    policyLink.addEventListener('click', function () {
+      openPrivacyDialog();
+      dismissCookieBar();
+    });
+  }
+
+  var privacyIconBtn = document.getElementById('privacyIconBtn');
+  if (privacyIconBtn) privacyIconBtn.addEventListener('click', openPrivacyDialog);
+
+  var closeBtn = document.getElementById('privacyDialogClose');
+  if (closeBtn && dialog) closeBtn.addEventListener('click', function () { dialog.close(); });
+
+  if (dialog) {
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) dialog.close();
+    });
+  }
 })();
