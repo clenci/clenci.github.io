@@ -6,14 +6,20 @@ Cezar Lenci tem mais de dez anos de experiência em arquitetura de software (Arq
 
 ## Serviços
 
-- AI Readiness Assessment (2 a 4 semanas): diagnóstico de prontidão e priorização de oportunidades de IA.
-- Enterprise AI Blueprint (6 a 10 semanas): estratégia de IA de ponta a ponta — casos de uso, governança e roadmap em três horizontes.
-- AI Advisory Retainer (3 a 9 meses): acompanhamento contínuo da execução do roadmap.
-- Workshop Executivo de IA (meio-dia ou dia completo): alinhamento estratégico do time de liderança.
-- Sprint de Decisão (2 a 4 semanas): destrava uma decisão crítica específica.
+- [AI Readiness Assessment](https://cezarlenci.com.br/#servicos): 2 a 4 semanas. Diagnóstico de prontidão e priorização de oportunidades de IA.
+- [Enterprise AI Blueprint](https://cezarlenci.com.br/#servicos): 6 a 10 semanas. Estratégia de IA de ponta a ponta — casos de uso, governança e roadmap em três horizontes.
+- [AI Advisory Retainer](https://cezarlenci.com.br/#servicos): 3 a 9 meses. Acompanhamento contínuo da execução do roadmap.
+- [Workshop Executivo de IA](https://cezarlenci.com.br/#servicos): meio-dia ou dia completo. Alinhamento estratégico do time de liderança.
+- [Sprint de Decisão](https://cezarlenci.com.br/#servicos): 2 a 4 semanas. Destrava uma decisão crítica específica.
 
 ## Contato
 
-- LinkedIn: https://www.linkedin.com/in/cezarlenci
-- Email: contato@cezarlenci.com.br
-- Site: https://cezarlenci.com.br/
+- [LinkedIn](https://www.linkedin.com/in/cezarlenci): perfil profissional de Cezar Lenci.
+- [Email](mailto:contato@cezarlenci.com.br): contato@cezarlenci.com.br
+- [Site](https://cezarlenci.com.br/): página inicial.
+
+## Optional
+
+- [Substack](https://cezarlenci.substack.com/): artigos publicados.
+- [Medium](https://medium.com/@cezar.lenci): artigos publicados.
+- [GitHub](https://github.com/clenci): projetos técnicos, incluindo arch-advisor e multiagent-llm-architect.

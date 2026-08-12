@@ -23,7 +23,9 @@
 <meta name="theme-color" content="#15191F">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -62,6 +64,7 @@
 <button class="mobile-index-toggle" id="mobileIndexToggle" aria-label="Abrir índice de seções">···</button>
 <div class="mobile-index-sheet" id="mobileIndexSheet"></div>
 
+<main>
 <!-- 1. HERO -->
 <section class="section dark hero" id="topo" data-label="Início">
   <div class="hero-layout reveal">
@@ -85,7 +88,10 @@
     </div>
     <div class="hero-photo">
       <div class="frame">
-        <img src="img/foto-cezar.jpg" alt="Cezar Lenci, advisor estratégico de IA">
+        <picture>
+          <source srcset="img/foto-cezar.webp" type="image/webp">
+          <img src="img/foto-cezar.jpg" alt="Cezar Lenci, advisor estratégico de IA" width="800" height="716" fetchpriority="high">
+        </picture>
       </div>
     </div>
   </div>
@@ -360,6 +366,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer class="site-footer">
   <div>Cezar Lenci — Advisor estratégico de IA — <a class="footer-link" href="https://www.linkedin.com/in/cezarlenci" target="_blank" rel="noopener">in/cezarlenci</a> — <a class="footer-link" href="mailto:contato@cezarlenci.com.br">contato@cezarlenci.com.br</a></div>
