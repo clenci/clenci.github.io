@@ -1,0 +1,19 @@
+# Cezar Lenci
+
+> Advisor estratégico de IA para CEOs e CTOs. Ajuda empresas a fechar a distância entre o que já investem em IA e o resultado que conseguem mostrar, com governança, arquitetura e roadmap executável.
+
+Cezar Lenci tem mais de dez anos de experiência em arquitetura de software (Arquiteto de Soluções, Principal Architect, Architecture Manager) em setores como financeiro, meios de pagamento, seguros e infraestrutura. Hoje atua como advisor estratégico independente, não como consultor técnico de implementação de IA.
+
+## Serviços
+
+- AI Readiness Assessment (2 a 4 semanas): diagnóstico de prontidão e priorização de oportunidades de IA.
+- Enterprise AI Blueprint (6 a 10 semanas): estratégia de IA de ponta a ponta — casos de uso, governança e roadmap em três horizontes.
+- AI Advisory Retainer (3 a 9 meses): acompanhamento contínuo da execução do roadmap.
+- Workshop Executivo de IA (meio-dia ou dia completo): alinhamento estratégico do time de liderança.
+- Sprint de Decisão (2 a 4 semanas): destrava uma decisão crítica específica.
+
+## Contato
+
+- LinkedIn: https://www.linkedin.com/in/cezarlenci
+- Email: contato@cezarlenci.com.br
+- Site: https://cezarlenci.com.br/

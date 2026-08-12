@@ -1,5 +1,9 @@
-/* Design system do site — deriva de motor-pdf/style-apresentacao.css
-   (mesmos tokens de cor e tipografia do material apresentável em PDF).
+/* Design system do site. Tokens de cor: mesma fonte de verdade que o motor-pdf
+   (motor-pdf/tokens.css), espelhados aqui à mão porque o site é publicado como
+   cópia isolada da pasta site/ e não pode importar um arquivo fora dela (ver
+   .claude/memory/publicar-site-e-subtree-push.md). Se um valor mudar em
+   motor-pdf/tokens.css, muda aqui também — é a única duplicação intencional
+   que resta no sistema. Espec completa: diretrizes/design-system.md.
    Layout: one-pager com seções em faixas escura/clara alternadas,
    ritmo dado por altura/densidade variável + transição de entrada
    (sem scroll-snap — testado e descartado, ver nota abaixo) e
@@ -12,10 +16,14 @@
   --paper2:#ECE8DF;
   --offwhite:#ECE8DF;
   --inktext:#1B2026;
-  --gold:#C2A35A;
-  --gold-soft:#D9C48F;
+  --body-paper:#4A4F57;
+  --body-ink:#C9C2B2;
   --slate-paper:#6B6456;
   --slate-ink:#7C8591;
+  --muted-ink:#B9C2CE;
+  --gold:#C2A35A;
+  --gold-deep:#B08D3E;
+  --gold-soft:#D9C48F;
   --hairline:#D8D2C4;
   --hairline-dark:#2A313B;
 
@@ -30,8 +38,9 @@
      (o zoom nativo do navegador recalcula vh de um jeito que o `zoom`
      do CSS não replica, esticando as seções verticalmente ao invés de
      preencher a tela).
-     TESTE (05/08): 1.25 = +25%. Voltar para 1 antes de publicar, a
-     menos que ele aprove manter maior. */
+     1.25 = +25%, valor canônico aprovado (design-system.md, decisão 04) —
+     o PDF do material apresentável (motor-pdf/style-site.css) usa o mesmo
+     valor, os dois meios agora batem. */
   --type-scale:1.25;
 }
 
@@ -82,6 +91,7 @@ body{
   font-weight:600;
   margin:0 0 1.4rem 0;
 }
+.light .kicker{ color:var(--gold-deep); }
 
 .gold-rule{
   width:56px;
@@ -107,7 +117,7 @@ h2{
   max-width:64ch;
   margin:0 0 1.6rem 0;
 }
-.dark .lead{ color:#C9C2B2; }
+.dark .lead{ color:var(--body-ink); }
 .light .lead{ color:var(--slate-paper); }
 
 .synthesis{
@@ -332,7 +342,7 @@ h2{
   font-style:italic;
   font-size:clamp(calc(.95rem * var(--type-scale)), calc(1.3vw * var(--type-scale)), calc(1.1rem * var(--type-scale)));
   line-height:1.55;
-  color:#C9C2B2;
+  color:var(--body-ink);
   max-width:48ch;
   margin:0;
 }
@@ -442,7 +452,7 @@ h2{
   padding:1.3rem 1.4rem;
   font-size:calc(.96rem * var(--type-scale));
   line-height:1.55;
-  color:#DAD5C6;
+  color:var(--body-ink);
 }
 
 .closing-line{
@@ -495,7 +505,7 @@ h2{
   border-radius:50%;
   background:var(--paper);
   border:calc(2px * var(--type-scale)) solid var(--gold);
-  color:var(--gold);
+  color:var(--gold-deep);
   font-family:'Lora',Georgia,serif;
   font-weight:600;
   font-size:calc(.9rem * var(--type-scale));
@@ -555,6 +565,8 @@ h2{
   margin:0 0 2.2rem 0;
 }
 
+.journey-tag.journey-tag-secondary{ margin-top:2.2rem; }
+
 .service-track{
   display:flex;
   flex-direction:column;
@@ -603,7 +615,7 @@ h2{
 .service-card summary .synthesis{
   display:block;
   width:100%;
-  color:#B9C2CE;
+  color:var(--muted-ink);
   font-size:calc(.92rem * var(--type-scale));
   margin-top:.2rem;
   order:4;
@@ -632,7 +644,7 @@ h2{
 .service-body ul{
   margin:0 0 1.2rem 0;
   padding-left:1.1rem;
-  color:#C9C2B2;
+  color:var(--body-ink);
   font-size:calc(.92rem * var(--type-scale));
   line-height:1.55;
 }
@@ -676,6 +688,7 @@ h2{
   color:var(--slate-paper);
 }
 .boundary-note strong{ color:var(--inktext); }
+.boundary-note.boundary-note-secondary{ margin-top:1rem; border-top:0; padding-top:0; }
 
 /* ---------- CREDIBILIDADE ---------- */
 
@@ -699,7 +712,7 @@ h2{
 .stat-grid .stat-label{
   font-size:calc(.85rem * var(--type-scale));
   line-height:1.45;
-  color:#C9C2B2;
+  color:var(--body-ink);
 }
 
 /* ---------- CTA / PRÓXIMO PASSO ---------- */
@@ -711,7 +724,7 @@ h2{
   margin-top:.6rem;
 }
 .cta-card p{
-  color:#C9C2B2;
+  color:var(--body-ink);
   font-size:calc(1rem * var(--type-scale));
   line-height:1.6;
   max-width:60ch;
@@ -790,7 +803,7 @@ h2{
   flex-wrap:wrap;
   gap:.6rem 1.2rem;
   background:var(--ink);
-  color:#C9C2B2;
+  color:var(--body-ink);
   border-top:1px solid var(--hairline-dark);
   padding:.85rem 1.4rem;
   font-size:calc(.82rem * var(--type-scale));
@@ -854,7 +867,7 @@ h2{
   margin:0 0 .9rem 0;
 }
 .privacy-dialog-body p:last-child{ margin-bottom:0; }
-.privacy-dialog-body a{ color:var(--gold); }
+.privacy-dialog-body a{ color:var(--gold-deep); }
 .privacy-dialog-close{
   position:absolute;
   top:1.2rem;
