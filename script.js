@@ -43,20 +43,41 @@
 
   // ---- barra de progresso ----
   var rail = document.getElementById('progressRail');
+  var SCROLL_MARKS = [25, 50, 75, 90, 100];
+  var scrollMarksHit = {};
   function updateProgress() {
     var h = document.documentElement;
     var scrollable = h.scrollHeight - h.clientHeight;
     var pct = scrollable > 0 ? (h.scrollTop || document.body.scrollTop) / scrollable * 100 : 0;
     rail.style.width = pct + '%';
+
+    if (typeof gtag === 'function') {
+      SCROLL_MARKS.forEach(function (mark) {
+        if (!scrollMarksHit[mark] && pct >= mark) {
+          scrollMarksHit[mark] = true;
+          gtag('event', 'scroll_depth', { percent_scrolled: mark });
+        }
+      });
+    }
   }
   document.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
 
   // ---- seção ativa no trilho (a revelação de entrada agora é CSS puro, ver style.css) ----
+  var sectionsViewed = {};
   if ('IntersectionObserver' in window) {
     var activeObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) setActive(entry.target.id);
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+          if (typeof gtag === 'function' && !sectionsViewed[entry.target.id]) {
+            sectionsViewed[entry.target.id] = true;
+            gtag('event', 'section_view', {
+              section_id: entry.target.id,
+              section_label: entry.target.getAttribute('data-label') || entry.target.id
+            });
+          }
+        }
       });
     }, { threshold: 0.5 });
 
