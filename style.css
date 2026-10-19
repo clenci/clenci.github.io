@@ -652,7 +652,7 @@ h2{
 .service-body .footnote{
   font-size:calc(.85rem * var(--type-scale));
   color:var(--slate-ink);
-  margin:0;
+  margin:0 0 1.2rem 0;
   font-style:italic;
 }
 
