@@ -2,7 +2,7 @@
 
 > Advisor estratégico de IA para CEOs e CTOs. Ajuda empresas a fechar a distância entre o que já investem em IA e o resultado que conseguem mostrar, com governança, arquitetura e roadmap executável.
 
-Cezar Lenci tem mais de dez anos de experiência em arquitetura de software (Arquiteto de Soluções, Principal Architect, Architecture Manager) em setores como financeiro, meios de pagamento, seguros e infraestrutura. Hoje atua como advisor estratégico independente, não como consultor técnico de implementação de IA.
+Cezar Lenci tem mais de dez anos de experiência em arquitetura de software (Arquiteto de Soluções e Principal Architect) em setores como financeiro, meios de pagamento, seguros, infraestrutura e educação. Hoje atua como advisor estratégico independente, não como consultor técnico de implementação de IA.
 
 ## Serviços
 
